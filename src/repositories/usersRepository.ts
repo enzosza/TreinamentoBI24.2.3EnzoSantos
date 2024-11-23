@@ -77,6 +77,7 @@ class usersRepository{
 
     public delete(index: number){
         this.users.splice(index, 1);
+        this.publicusers.splice(index, 1);
     }
 }
 
