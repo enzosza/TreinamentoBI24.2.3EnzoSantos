@@ -5,7 +5,10 @@ interface IRequest{
     id: String;
     name: String;
     email: String;
+    password: String;
+    phonenumber: String;
     cpf: String;
+    birthdate: String;
 }
 
 class CreateUserService{
@@ -21,6 +24,9 @@ class CreateUserService{
 
         const userwithemail = this.usersRepository.findUserByEmail(data.email);
         if(userwithemail) {throw Error('Já existe um usuário com esse email');}
+
+        const userwithphonenumber = this.usersRepository.findUserByPhoneNumber(data.phonenumber);
+        if(userwithphonenumber) {throw Error('Já existe um usuário com esse número de telefone');}
 
         const user = this.usersRepository.create(data);
 

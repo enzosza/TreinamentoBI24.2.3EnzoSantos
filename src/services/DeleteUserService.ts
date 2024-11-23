@@ -5,7 +5,7 @@ interface IRequest{
     id: String;
 }
 
-class GetUserService{
+class DeleteUserService{
     private usersRepository: usersRepository;
 
     constructor(usersRepository: usersRepository){
@@ -13,13 +13,16 @@ class GetUserService{
     }
 
     public execute(data: IRequest){
-        const user = this.usersRepository.getByID(data.id);
+        const userwithID = this.usersRepository.getByID(data.id)
 
+        if(!userwithID){ throw Error('Esse usuário não existe');}
 
-        if(!user){ throw Error('Esse usuário não existe');}
+        const index = this.usersRepository.findIndexById(data.id);
 
-        return user;
+        this.usersRepository.delete(index);
+
+        return userwithID;
     }
 }
 
-export default GetUserService;
+export default DeleteUserService;
