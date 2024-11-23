@@ -59,24 +59,30 @@ usersRouter.get('/:id', (request: Request, response: Response) =>{
 })
 
 usersRouter.put('/:id', (request: Request, response: Response) => {
-    const { id } = request.params;
-    const { name, cpf, email } = request.body;
+    try{
+        const { id } = request.params;
+        const { name, email, password, phonenumber, cpf, birthdate } = request.body;
 
-    const UpdateUser = new UpdateUserService(userRepository);
+        const UpdateUser = new UpdateUserService(userRepository);
 
-    if(!name || !email){
-        return response.status(400).json({error: 'Por favor, envie todas as informações'});
-    }
-
-    const updated_user = UpdateUser.execute({
-        id,
-        data: {
-        name,
-        email
+        const updated_user = UpdateUser.execute({
+            id,
+            data: {
+                name,
+                email,
+                password,
+                phonenumber,
+                cpf,
+                birthdate,
         }
+
     });
 
-    return response.json(updated_user);
+    return response.status(200).json(updated_user);
+
+    } catch (e: any){
+        return response.status(400).json({ error: e.message});
+    }
 })
 
 usersRouter.delete('/:id', (request: Request, response: Response) => {

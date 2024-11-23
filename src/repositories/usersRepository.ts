@@ -14,8 +14,12 @@ interface ICreateUserDTO{
 interface IUpdateUserDTO{
     id: String;
     data: {
-    name: String;
-    email: String;
+        name: String;
+        email: String;
+        password: String;
+        phonenumber: String;
+        cpf: String;
+        birthdate: String;
     }
 }
 

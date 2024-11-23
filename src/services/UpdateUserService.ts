@@ -6,6 +6,10 @@ interface IRequest{
     data: {
     name: String;
     email: String;
+    password: String;
+    phonenumber: String;
+    cpf: String;
+    birthdate: String;
     }
 }
 
@@ -23,6 +27,12 @@ class UpdateUserService{
 
         const userwithemail = this.usersRepository.findUserByEmail(data.data.email);
         if(userwithemail) {throw Error('Já existe um usuário com esse email');}
+
+        const userwithCPF = this.usersRepository.findUserByEmail(data.data.cpf);
+        if(userwithCPF) {throw Error('Já existe um usuário com esse CPF');}
+
+        const userwithphonenumber = this.usersRepository.findUserByEmail(data.data.phonenumber);
+        if(userwithphonenumber) {throw Error('Já existe um usuário com esse número de telefone');}
 
         const user = this.usersRepository.update(data);
 
