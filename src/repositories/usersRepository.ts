@@ -1,4 +1,3 @@
-import PublicUsers from "../models/publicusers";
 import Users from "../models/users";
 
 interface ICreateUserDTO{
@@ -25,11 +24,9 @@ interface IUpdateUserDTO{
 
 class usersRepository{
     private users: Users[];
-    private publicusers: PublicUsers[];
 
     constructor(){
         this.users = [];
-        this.publicusers = [];
     }
 
     public findUserByCPF(cpf: string): Users | undefined {
@@ -46,11 +43,8 @@ class usersRepository{
 
     public create(data: ICreateUserDTO): Users{
         const user = new Users(data);
-        const publicuser = new PublicUsers(data);
 
         this.users.push(user);
-        this.publicusers.push(publicuser);
-
         return user;
 
     }
@@ -73,7 +67,7 @@ class usersRepository{
     }
 
     public getByID(id: string): Omit <Users, 'password'> | undefined {
-        const user = this.users.find((users: PublicUsers) => users.id == id);
+        const user = this.users.find((users: Users) => users.id == id);
         if(user){
             const userWithoutPassword = {
                 id: user.id,
@@ -104,7 +98,6 @@ class usersRepository{
 
     public delete(index: number){
         this.users.splice(index, 1);
-        this.publicusers.splice(index, 1);
     }
 
     public userExists(user_id: string) {

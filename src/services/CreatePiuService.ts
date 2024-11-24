@@ -2,6 +2,7 @@ import piusRepository from "../repositories/piusRepository";
 import usersRepository from "../repositories/usersRepository";
 
 interface IRequest{
+    piu_id: string;
     user_id: string;
     text: string;
     likes: number;

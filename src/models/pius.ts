@@ -1,4 +1,6 @@
 class Pius {
+    piu_id: string;
+
     user_id: string;
 
     text: string;
@@ -13,11 +15,13 @@ class Pius {
 
 
     constructor({
+        piu_id,
         user_id,
         text,
         likes,
         comments
     }: Omit <Pius, 'created_at' | 'updated_at'>){
+        this.piu_id = piu_id;
         this.user_id = user_id;
         this.text = text;
         this.likes = likes;
