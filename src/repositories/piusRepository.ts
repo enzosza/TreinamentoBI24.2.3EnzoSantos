@@ -24,6 +24,10 @@ class piusRepository{
         return piu;
     }
 
+    public getAll(): Pius[]{
+        return this.pius;
+    }
+
 }
 
 export default piusRepository;

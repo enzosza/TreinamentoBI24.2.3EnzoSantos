@@ -30,6 +30,13 @@ piusRouter.post('/', (request: Request, response: Response) => {
     } catch(e: any) {
         return response.status(400).json({ error: e.message});
     }
+
+});
+
+piusRouter.get('/getAll', (request: Request, response: Response) =>{
+    const pius = piuRepository.getAll();
+
+    return response.status(200).json(pius);
 });
 
 export default piusRouter;
