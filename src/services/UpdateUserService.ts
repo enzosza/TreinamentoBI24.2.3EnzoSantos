@@ -2,14 +2,14 @@ import Users from "../models/users";
 import usersRepository from "../repositories/usersRepository";
 
 interface IRequest{
-    id: String;
+    id: string;
     data: {
-    name: String;
-    email: String;
-    password: String;
-    phonenumber: String;
-    cpf: String;
-    birthdate: String;
+    name: string;
+    email: string;
+    password: string;
+    phonenumber: string;
+    cpf: string;
+    birthdate: string;
     }
 }
 

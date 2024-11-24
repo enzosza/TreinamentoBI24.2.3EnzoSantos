@@ -1,17 +1,17 @@
 class Users {
-    id: String;
+    id: string;
 
-    name: String;
+    name: string;
 
-    email: String;
+    email: string;
 
-    password: String;
+    password: string;
 
-    phonenumber: String;
+    phonenumber: string;
 
-    birthdate: String;
+    birthdate: string;
 
-    cpf: String;
+    cpf: string;
 
     created_at: Date;
 

@@ -3,17 +3,17 @@ import Users from "./users";
 // type PublicUsers = Omit <Users, 'password'>;
 
 class PublicUsers{
-    id: String;
+    id: string;
 
-    name: String;
+    name: string;
 
-    email: String;
+    email: string;
 
-    phonenumber: String;
+    phonenumber: string;
 
-    birthdate: String;
+    birthdate: string;
 
-    cpf: String;
+    cpf: string;
 
     created_at: Date;
 

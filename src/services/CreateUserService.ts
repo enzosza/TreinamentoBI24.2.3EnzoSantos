@@ -2,13 +2,13 @@ import Users from "../models/users";
 import usersRepository from "../repositories/usersRepository";
 
 interface IRequest{
-    id: String;
-    name: String;
-    email: String;
-    password: String;
-    phonenumber: String;
-    cpf: String;
-    birthdate: String;
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+    phonenumber: string;
+    cpf: string;
+    birthdate: string;
 }
 
 class CreateUserService{

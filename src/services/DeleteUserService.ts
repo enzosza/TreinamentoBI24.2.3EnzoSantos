@@ -2,7 +2,7 @@ import Users from "../models/users";
 import usersRepository from "../repositories/usersRepository";
 
 interface IRequest{
-    id: String;
+    id: string;
 }
 
 class DeleteUserService{
